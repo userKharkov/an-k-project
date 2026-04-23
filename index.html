@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELOUR — Магазин одежды</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="logo">VELOUR</a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link nav__link--active">Главная</a>
+        <a href="#" class="nav__link">Каталог</a>
+        <a href="#new" class="nav__link">Новинки</a>
+        <a href="#sale" class="nav__link">Скидки</a>
+        <a href="#" class="nav__link">О нас</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" aria-label="Поиск" id="searchToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <a href="#" class="icon-btn" aria-label="Избранное">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </a>
+        <button class="icon-btn cart-btn" aria-label="Корзина" id="cartToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="text" class="search-bar__input" placeholder="Поиск товаров..." id="searchInput" />
+        <button class="search-bar__close" id="searchClose">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <h2>Корзина</h2>
+      <button class="cart-drawer__close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody">
+      <div class="cart-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <p>Корзина пуста</p>
+      </div>
+    </div>
+    <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Итого:</span>
+        <span id="cartTotal">0 ₽</span>
+      </div>
+      <button class="btn btn--primary btn--full">Оформить заказ</button>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__slides" id="heroSlides">
+        <div class="hero__slide hero__slide--1 active">
+          <div class="container hero__content">
+            <span class="hero__label">Новая коллекция 2026</span>
+            <h1 class="hero__title">Стиль,<br>который говорит<br>за тебя</h1>
+            <p class="hero__sub">Откройте весенние образы — лёгкие, смелые, настоящие</p>
+            <div class="hero__btns">
+              <a href="#" class="btn btn--primary">Смотреть коллекцию</a>
+              <a href="#new" class="btn btn--outline-light">Новинки</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero__slide hero__slide--2">
+          <div class="container hero__content">
+            <span class="hero__label">Специальное предложение</span>
+            <h1 class="hero__title">Скидки<br>до 50%<br>на летние вещи</h1>
+            <p class="hero__sub">Только до конца апреля — обновите гардероб выгодно</p>
+            <div class="hero__btns">
+              <a href="#sale" class="btn btn--primary">Перейти к скидкам</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero__slide hero__slide--3">
+          <div class="container hero__content">
+            <span class="hero__label">Для неё и для него</span>
+            <h1 class="hero__title">Пары<br>в одном<br>стиле</h1>
+            <p class="hero__sub">Подберите образ вместе — парные луки из новой линейки</p>
+            <div class="hero__btns">
+              <a href="#" class="btn btn--primary">Выбрать образ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__controls">
+        <button class="hero__arrow hero__arrow--prev" id="heroPrev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="hero__dots" id="heroDots">
+          <button class="hero__dot active" data-slide="0"></button>
+          <button class="hero__dot" data-slide="1"></button>
+          <button class="hero__dot" data-slide="2"></button>
+        </div>
+        <button class="hero__arrow hero__arrow--next" id="heroNext">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories section">
+      <div class="container">
+        <h2 class="section__title">Категории</h2>
+        <div class="categories__grid">
+          <a href="#?cat=women" class="category-card category-card--women">
+            <div class="category-card__overlay">
+              <span class="category-card__title">Женская</span>
+              <span class="category-card__count">142 товара</span>
+            </div>
+          </a>
+          <a href="#?cat=men" class="category-card category-card--men">
+            <div class="category-card__overlay">
+              <span class="category-card__title">Мужская</span>
+              <span class="category-card__count">98 товаров</span>
+            </div>
+          </a>
+          <a href="#?cat=kids" class="category-card category-card--kids">
+            <div class="category-card__overlay">
+              <span class="category-card__title">Детская</span>
+              <span class="category-card__count">64 товара</span>
+            </div>
+          </a>
+          <a href="#?cat=accessories" class="category-card category-card--accessories">
+            <div class="category-card__overlay">
+              <span class="category-card__title">Аксессуары</span>
+              <span class="category-card__count">77 товаров</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    <section class="section" id="new">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Новинки</h2>
+          <a href="#?sort=new" class="section__link">Все новинки →</a>
+        </div>
+        <div class="products__grid" id="newProducts"></div>
+      </div>
+    </section>
+
+    <!-- BANNER -->
+    <section class="promo-banner">
+      <div class="container promo-banner__inner">
+        <div class="promo-banner__text">
+          <span class="promo-banner__label">Эксклюзивно</span>
+          <h2 class="promo-banner__title">Лимитированная<br>коллекция VELOUR</h2>
+          <p class="promo-banner__desc">Только 200 экземпляров каждой вещи. Успейте выбрать своё.</p>
+          <a href="#?cat=limited" class="btn btn--primary">Смотреть</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALE -->
+    <section class="section" id="sale">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Скидки <span class="badge-sale">до 50%</span></h2>
+          <a href="#?sale=1" class="section__link">Все скидки →</a>
+        </div>
+        <div class="products__grid" id="saleProducts"></div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features section">
+      <div class="container">
+        <div class="features__grid">
+          <div class="feature">
+            <div class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <h3 class="feature__title">Бесплатная доставка</h3>
+            <p class="feature__text">При заказе от $300 по Украине</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+            </div>
+            <h3 class="feature__title">Лёгкий возврат</h3>
+            <p class="feature__text">30 дней на возврат без лишних вопросов</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature__title">Гарантия качества</h3>
+            <p class="feature__text">Только проверенные материалы и производители</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.49 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <h3 class="feature__title">Поддержка 24/7</h3>
+            <p class="feature__text">Ответим на любой вопрос в удобное время</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="container newsletter__inner">
+        <div class="newsletter__text">
+          <h2 class="newsletter__title">Будьте в курсе новинок</h2>
+          <p class="newsletter__sub">Подпишитесь и получите скидку 10% на первый заказ</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm">
+          <input type="email" class="newsletter__input" placeholder="Ваш email" required />
+          <button type="submit" class="btn btn--primary">Подписаться</button>
+        </form>
+        <p class="newsletter__success" id="newsletterSuccess">Спасибо! Скидка уже на вашей почте.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo logo--light">VELOUR</a>
+        <p class="footer__tagline">Одежда, которая выражает вас</p>
+        <div class="footer__socials">
+          <a href="#" class="social-link" aria-label="VK">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm2.18 13.3h-1.5c-.57 0-.74-.45-1.76-1.49-.88-.87-1.27-.99-1.49-.99-.3 0-.39.09-.39.51v1.36c0 .36-.12.57-1.08.57-1.6 0-3.37-.97-4.62-2.78C4.89 10.26 4.5 8.5 4.5 8.13c0-.22.09-.43.51-.43h1.5c.38 0 .52.17.67.57.74 2.14 1.97 4.01 2.48 4.01.19 0 .27-.09.27-.57V9.55c-.06-1.02-.6-1.11-.6-1.47 0-.18.15-.36.39-.36h2.36c.32 0 .43.17.43.54v2.9c0 .32.14.43.23.43.19 0 .35-.11.7-.47 1.08-1.21 1.85-3.07 1.85-3.07.1-.22.27-.43.65-.43h1.5c.45 0 .55.23.45.54-.19.88-2.01 3.44-2.01 3.44-.16.26-.22.38 0 .67.16.21.68.66 1.03 1.06.64.72 1.13 1.33 1.26 1.75.14.42-.07.63-.49.63z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8c-.12.54-.45.67-.91.42l-2.52-1.86-1.22 1.17c-.13.13-.25.25-.51.25l.18-2.57 4.65-4.2c.2-.18-.04-.28-.31-.1L7.4 14.17l-2.46-.77c-.54-.17-.55-.54.11-.8l9.6-3.7c.44-.16.83.11.69.8l.3-.9z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__nav">
+        <div class="footer__nav-col">
+          <h4>Покупателям</h4>
+          <a href="#">Как сделать заказ</a>
+          <a href="#">Доставка и оплата</a>
+          <a href="#">Возврат</a>
+          <a href="#">Размерная сетка</a>
+        </div>
+        <div class="footer__nav-col">
+          <h4>Компания</h4>
+          <a href="#">О нас</a>
+          <a href="#">Вакансии</a>
+          <a href="#">Блог</a>
+          <a href="#">Контакты</a>
+        </div>
+        <div class="footer__nav-col">
+          <h4>Каталог</h4>
+          <a href="#?cat=women">Женская одежда</a>
+          <a href="#?cat=men">Мужская одежда</a>
+          <a href="#?cat=kids">Детская одежда</a>
+          <a href="#?cat=accessories">Аксессуары</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2026 VELOUR. Все права защищены.</p>
+        <div class="footer__legal">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
